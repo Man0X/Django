@@ -1,13 +1,19 @@
+{% extends 'template.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ManoX</title>
-        <link rel="stylesheet" href="{% static 'Django/css/home.css' %}">
-    </head>
-    <body>
-        <h1>Coucou</h1>
-    </body>
-</html>
+
+{% block static %}
+<link rel="stylesheet" href="{% static 'Django/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<h1>ManoX : Django</h1>
+<nav>
+    <h2>Link :</h2>
+    <ul>
+        <li><a href="{% url 'userList' %}">&gt; User List &lt;</a></li>
+    </ul>
+</nav>
+<main>
+
+</main>
+{% endblock %}
