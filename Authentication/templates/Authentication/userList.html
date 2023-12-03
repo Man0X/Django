@@ -1,7 +1,14 @@
 {% extends 'template.html' %}
+{% load static %}
+
+{% block static %}
+<link rel="stylesheet" href="{% static 'Django/css/home.css' %}">
+{% endblock %}
 
 {% block content %}
-{% for User in Users %}
-
-{% endfor %}
-{% endblock %}
+<h2>Users :</h2>
+<ul>
+    {% for User in Users %}
+    <li>{{ User.username }}</li>
+    {% endfor %}
+    {% endblock %}

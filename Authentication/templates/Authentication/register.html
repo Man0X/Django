@@ -9,7 +9,7 @@
 <nav>
     <a href="{% url 'home' %}">&lt;Go back</a>
 </nav>
-<h1>Connexion</h1>
+<h1>Inscription</h1>
 
 {% for message in messages %}
 <div class="alert alert-danger">
@@ -19,7 +19,7 @@
 
 <form method="post">
     {% csrf_token %}
-    {{ loginForm.as_p }}
-    <input type="submit" value="Se connecter">
+    {{ registerForm.as_p }}
+    <input type="submit" value="S'inscrire">
 </form>
 {% endblock %}
