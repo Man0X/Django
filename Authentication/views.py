@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.decorators import login_required
+from .models import *
+from .forms import UserRegisterForm, UserLoginForm
 
 
 def loginUser(request):
@@ -17,7 +19,7 @@ def loginUser(request):
         else:
             messages.error(request, 'Identifiants incorrects')
 
-    form = AuthenticationForm()
+    form = UserLoginForm()
     context = {
         "loginForm": form
     }
@@ -31,32 +33,22 @@ def logoutUser(request):
 
 def registerUser(request):
     if request.method == 'POST':
-        registerForm = UserCreationForm(request.POST)
+        registerForm = UserRegisterForm(request.POST)
         if registerForm.is_valid():
             user = registerForm.save()
+            login(request, user)
 
-            username = registerForm.cleaned_data['username']
-            password = registerForm.cleaned_data['password1']
-
-            user = authenticate(request, username=username, password=password)
-
-            if user is not None:
-                login(request, user)
             return redirect('home')
     else:
-        registerForm = UserCreationForm()
-
-    registerForm.fields['username'].help_text = None
-    # registerForm.fields['password1'].help_text = ''
-    # registerForm.fields['password2'].help_text = ''
+        registerForm = UserRegisterForm()
 
     context = {'registerForm': registerForm}
     return render(request, 'Authentication/register.html', context)
 
 
+# @login_required()
 def userList(request):
-    userModel = get_user_model()
     context = {
-        'Users': userModel.objects.all()
+        'Users': User.objects.all()
     }
     return render(request, 'Authentication/userList.html', context)
