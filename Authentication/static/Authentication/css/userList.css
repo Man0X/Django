@@ -1,0 +1,35 @@
+.userCard {
+    height: auto;
+    width: 40%;
+    margin: 20px;
+    min-width: 30%;
+    max-width: 45%;
+    background-color: #e7717d;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    flex-grow: 2;
+}
+
+.userCard .profilePicField {
+    width: 200px;
+    height: auto;
+    border-radius: 10%;
+    margin: 20px;
+}
+
+.userCard .usernameField {
+    font-weight: bold;
+    color: #0e0f16;
+}
+
+#userList {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}

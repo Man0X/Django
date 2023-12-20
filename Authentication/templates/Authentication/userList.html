@@ -2,13 +2,19 @@
 {% load static %}
 
 {% block static %}
-<link rel="stylesheet" href="{% static 'Django/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'Authentication/css/template.css' %}">
+<link rel="stylesheet" href="{% static 'Authentication/css/userList.css' %}">
 {% endblock %}
 
 {% block content %}
 <h2>Users :</h2>
-<ul>
-    {% for User in Users %}
-    <li>{{ User.username }}</li>
-    {% endfor %}
-    {% endblock %}
+<ul id="userList">
+        {% for User in Users %}
+        <li class="userCard">
+                <p class="usernameField">{{ User.username }}</p>
+                <img class="profilePicField"
+                        src="{{ User.profile_pic.url }}"
+                        alt="{{ User.username }}'s profile picture">
+        </li>
+        {% endfor %}
+        {% endblock %}

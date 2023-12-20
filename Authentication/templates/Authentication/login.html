@@ -2,13 +2,10 @@
 {% load static %}
 
 {% block static %}
-<link rel="stylesheet" href="{% static 'Django/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'Authentication/css/template.css' %}">
 {% endblock %}
 
 {% block content %}
-<nav>
-    <a href="{% url 'home' %}">&lt;Go back</a>
-</nav>
 <h1>Connexion</h1>
 
 {% for message in messages %}

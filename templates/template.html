@@ -8,6 +8,20 @@
         {% endblock %}
     </head>
     <body>
+        <nav>
+            {% if user.is_authenticated %}
+            <p>Connecté sous {{ user.username }} <a
+                    href="{% url 'logout' %}">Déconnexion</a>
+            </p>
+            {% else %}
+            <p>
+                <a href="{% url 'login' %}">Connexion</a> | <a
+                    href="{% url 'register' %}">S'inscrire</a>
+            </p>
+            {% endif %}
+            | <a href="{% url 'admin:index' %}">Admin</a> | <a
+                href="{% url 'home' %}">Go Back to Home</a>
+        </nav>
         {% block content %}
         {% endblock %}
     </body>

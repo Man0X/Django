@@ -1,0 +1,39 @@
+{% extends 'template.html' %}
+{% load static %}
+
+{% block static %}
+<link rel="stylesheet" href="{% static 'Messaging/css/template.css' %}">
+<link rel="stylesheet" href="{% static 'Messaging/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<header>
+    <h1>ManoX's Messaging</h1>
+</header>
+<main>
+    <ul class="messagesList">
+        {% for Message in Messages %}
+        {% if user == Message.created_by %}
+        <li class="messageContainer left">
+            <div class="messageContent">
+                <p class="username">{{ Message.created_by }}</p><p
+                    class="content">{{ Message.content }}</p>
+            </div>
+        </li>
+        {% else %}
+        <li class="messageContainer right">
+            <div class="messageContent">
+                <p class="username">{{ Message.created_by }}</p><p
+                    class="content">{{ Message.content }}</p>
+            </div>
+        </li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <form method="post" class="Form" id="MessageCreationForm">
+        {% csrf_token %}
+        {{ MessageCreationForm.content }}
+        <input type="submit" id="submit" value="=&gt;">
+    </form>
+</main>
+{% endblock %}

@@ -1,4 +1,33 @@
-body {
-    background-color: aquamarine;
-    font-weight: bold;
+h1 {
+    margin: 10px;
+}
+
+main {
+    padding: 20px;
+    margin: 20px;
+}
+
+a {
+    margin: 15px;
+}
+
+nav {
+    margin: 20px;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px;
+}
+
+h2 {
+    margin: 20px;
+}
+
+h3 {
+    margin: 10px;
+}
+
+li {
+    list-style: none;
 }

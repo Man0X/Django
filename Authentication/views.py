@@ -33,11 +33,14 @@ def logoutUser(request):
 
 def registerUser(request):
     if request.method == 'POST':
-        registerForm = UserRegisterForm(request.POST)
+        registerForm = UserRegisterForm(request.POST, request.FILES)
         if registerForm.is_valid():
-            user = registerForm.save()
-            login(request, user)
+            user = registerForm.save(commit=False)
+            user.set_password(registerForm.cleaned_data['password1'])
+            profile_pic = registerForm.cleaned_data.get('profile_pic')
 
+            user.save()
+            login(request, user)
             return redirect('home')
     else:
         registerForm = UserRegisterForm()

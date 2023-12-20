@@ -2,13 +2,10 @@
 {% load static %}
 
 {% block static %}
-<link rel="stylesheet" href="{% static 'Django/css/home.css' %}">
+<link rel="stylesheet" href="{% static 'Authentication/css/template.css' %}"
 {% endblock %}
 
 {% block content %}
-<nav>
-    <a href="{% url 'home' %}">&lt;Go back</a>
-</nav>
 <h1>Inscription</h1>
 
 {% for message in messages %}
@@ -17,7 +14,7 @@
 </div>
 {% endfor %}
 
-<form method="post">
+<form method="post" id="registerForm" enctype="multipart/form-data">
     {% csrf_token %}
     {{ registerForm.as_p }}
     <input type="submit" value="S'inscrire">

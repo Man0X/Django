@@ -2,32 +2,19 @@
 {% load static %}
 
 {% block static %}
+<link rel="stylesheet" href="{% static 'Django/css/template.css' %}">
 <link rel="stylesheet" href="{% static 'Django/css/home.css' %}">
 {% endblock %}
 
 {% block content %}
 <header>
-    <nav>
-        {% if user.is_authenticated %}
-        <p>Connecté sous {{ user.username }} | <a
-                href="{% url 'logout' %}">Déconnexion</a>
-        </p>
-        {% else %}
-        <p>
-            <a href="{% url 'login' %}">Connexion</a> |
-            <a href="{% url 'register' %}">S'inscrire</a></p>
-        {% endif %}
-        | <a href="{% url 'admin:index' %}">Admin</a>
-    </nav>
+    <h1>ManoX : Django</h1>
 </header>
-<h1>ManoX : Django</h1>
-<nav>
+<main>
     <h2>Link :</h2>
     <ul>
         <li><a href="{% url 'userList' %}">&gt; User List &lt;</a></li>
+        <li><a href="{% url 'messagingHome' %}">Messaging App</a></li>
     </ul>
-</nav>
-<main>
-
 </main>
 {% endblock %}

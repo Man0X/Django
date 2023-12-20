@@ -1,6 +1,6 @@
 # Django
 
-A Django project who's hodt on Render
+A Django project which's host on Render.
 
 ## Variables you need :
 
