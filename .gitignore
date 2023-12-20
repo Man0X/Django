@@ -1,2 +1,3 @@
 .env
 venv(Django-Render)/
+database.sqlite3
