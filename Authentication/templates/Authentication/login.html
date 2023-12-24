@@ -14,9 +14,9 @@
 </div>
 {% endfor %}
 
-<form method="post">
+<form method="post" id="loginForm">
     {% csrf_token %}
     {{ loginForm.as_p }}
-    <input type="submit" value="Se connecter">
+    <input type="submit" class="submit cblack bold" value="Se connecter">
 </form>
 {% endblock %}

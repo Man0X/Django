@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
+from django.contrib.auth.decorators import *
 
 
+@login_required()
 def home(request):
     if request.method == 'POST':
         message_creation_form = MessageCreationForm(

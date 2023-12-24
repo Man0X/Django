@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import get_user_model, authenticate, login, logout
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import *
 from .models import *
 from .forms import UserRegisterForm, UserLoginForm
 
@@ -49,7 +49,7 @@ def registerUser(request):
     return render(request, 'Authentication/register.html', context)
 
 
-# @login_required()
+@login_required()
 def userList(request):
     context = {
         'Users': User.objects.all()

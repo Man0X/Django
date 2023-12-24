@@ -42,3 +42,36 @@ h3 {
 li {
     list-style: none;
 }
+
+#registerForm {
+    color: #171717;
+}
+
+#loginForm {
+    color: #171717;
+}
+
+.submit {
+    padding: 5px;
+    margin: 20px;
+}
+
+#usernameField {
+    padding: 5px;
+}
+
+#passwordField {
+    padding: 5px;
+}
+
+.bcblack {
+    color: #020617;
+}
+
+.cblack {
+    color: #020617;
+}
+
+.bold {
+    font-weight: bold;
+}
